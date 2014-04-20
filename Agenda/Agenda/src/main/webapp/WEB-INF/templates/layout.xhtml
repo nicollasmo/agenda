@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ice="http://www.icesoft.com/icefaces/component"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <f:view>
+        <ui:insert name="metadata"/>
+        <h:head>
+            <ui:insert name="styles"/>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>IF6AE - Music Database</title>
+
+<!--<link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/xmlhttp/css/rime/rime.css"/>-->
+            <link href="${facesContext.externalContext.requestContextPath}/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />            
+
+        </h:head>
+
+        <h:body>
+            <ui:insert name="javascript"/>
+            <h:form>
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">Music Database</a>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+
+                                <li><ice:commandLink value="Artistas" action="#{artistaBean.listarTodos}"/></li>
+                                <li><ice:commandLink value="Álbuns" action="#{albumBean.listarTodos}"/></li>
+                                <li><ice:commandLink value="Faixas" action="#{faixaBean.listarTodos}"/></li>
+                                <li><a href="${facesContext.externalContext.requestContextPath}/cadastro.xhtml?faces-redirect=true">Cadastro</a></li>
+                                <li><a href="${facesContext.externalContext.requestContextPath}/colaborador/inicial.xhtml?faces-redirect=true">Área de colaborador</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Área de administrador <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><ice:commandLink value="Artistas" action="#{artistaBean.listarAdmin}"/></li>
+                                        <li><ice:commandLink value="Álbuns" action="#{albumBean.listarAdmin}"/></li>
+                                        <li><ice:commandLink value="Faixas" action="#{faixaBean.listarAdmin}"/></li>
+                                        <li><a href="${facesContext.externalContext.requestContextPath}/admin/usuarios.xhtml?faces-redirect=true">Usuários</a></li>
+                                    </ul>
+                                </li>
+                                <li><ice:commandLink value="${facesContext.externalContext.userPrincipal.name}" action="#" rendered="${!empty facesContext.externalContext.userPrincipal}"/></li>
+                                <li><ice:commandLink value="Logout" action="#{loginBean.logoutAction}" rendered="${!empty facesContext.externalContext.userPrincipal}"/></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </h:form>
+
+            <div class="container">
+                <div class="row">
+                    <ui:insert name="top"><h3>Music Database</h3></ui:insert>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="well">
+                            <ui:insert name="content">Content</ui:insert>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <ui:insert name="bottom">
+                        Projeto Final de Desenvolvimento Web 
+                    </ui:insert>
+                </div>
+            </div>
+
+            <script src="${facesContext.externalContext.requestContextPath}/assets/js/jquery.js"></script>
+            <script src="${facesContext.externalContext.requestContextPath}/assets/js/bootstrap.js"></script>
+
+        </h:body>
+    </f:view>
+</html>
