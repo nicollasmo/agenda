@@ -3,7 +3,7 @@
   <persistence-unit name="AgendaPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <non-jta-data-source>java:/comp/env/jdbc/agendadatasource</non-jta-data-source>
-        <class>utfpr.projetofinalweb.entity.Album</class>
+        <class>utfpr.agenda.model.Contato</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
         <properties>
