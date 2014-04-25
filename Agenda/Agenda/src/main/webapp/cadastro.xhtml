@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                template="./WEB-INF/templates/layout.xhtml">
+
+    <ui:define name="styles">
+    </ui:define>
+
+    <ui:define name="metadata">
+    </ui:define>
+
+    <ui:define name="javascript">
+    </ui:define>
+
+    <ui:define name="top">
+        <h3>Cadastro de Contato</h3>
+    </ui:define>
+
+    <ui:define name="content">
+        <ice:form styleClass="form-horizontal">
+            <ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <!--<ice:outputLabel for="nome" value="Nome"/>-->
+                    <ace:textEntry id="nome" value="#{contatoBean.contato.nome}" size="80"
+                                   label="Nome" maxlength="40" required="true" requiredMessage="O campo Nome é obrigatório" requiredIndicator="*" labelPosition="left"/>
+                </ice:panelGroup>
+
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <!--<ice:outputLabel for="endereco" value="Endereço"/>-->
+                    <ace:textEntry id="endereco" value="#{contatoBean.contato.endereco}" size="80"
+                                   label="Endereço" maxlength="40" required="true" requiredMessage="O campo Endereço é obrigatório" requiredIndicator="*" labelPosition="left"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <!--<ice:outputLabel for="telefone" value="Telefone"/>-->
+                    <ace:textEntry id="telefone" value="#{contatoBean.contato.telefone}" size="80"
+                                   label="Telefone" maxlength="40" required="true" requiredMessage="O campo Telefone é obrigatório" requiredIndicator="*" labelPosition="left"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <!--<ice:outputLabel for="celular" value="Celular"/>-->
+                    <ace:textEntry id="celular" value="#{contatoBean.contato.celular}" size="80"
+                                   label="Celular" maxlength="40" labelPosition="left"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <!--<ice:outputLabel for="email" value="Email"/>-->
+                    <ace:textEntry id="email" value="#{contatoBean.contato.email}" size="80"
+                                   label="Email" maxlength="40" required="true" requiredMessage="O campo Email é obrigatório" requiredIndicator="*" labelPosition="left"/>
+                </ice:panelGroup>
+
+                <br/>
+            </ice:panelGroup>
+            <ice:commandButton styleClass="btn btn-primary" value="Cadastrar" action="#{contatoBean.cadastrarContato}" rendered="#{!contatoBean.editar}"/>
+            <ice:commandButton styleClass="btn btn-primary" value="Alterar" action="#{contatoBean.editarContato}" rendered="#{contatoBean.editar}"/>
+            <br/><br/>
+            <ice:messages/>
+
+        </ice:form>
+    </ui:define>
+
+</ui:composition>

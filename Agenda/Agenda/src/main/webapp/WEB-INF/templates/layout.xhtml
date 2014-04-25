@@ -11,7 +11,7 @@
         <h:head>
             <ui:insert name="styles"/>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-            <title>IF6AE - Music Database</title>
+            <title>Agenda de Contatos</title>
 
 <!--<link rel="stylesheet" type="text/css" href="${facesContext.externalContext.requestContextPath}/xmlhttp/css/rime/rime.css"/>-->
             <link href="${facesContext.externalContext.requestContextPath}/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />            
@@ -24,27 +24,12 @@
                 <div class="navbar navbar-default" role="navigation">
                     <div class="container">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Music Database</a>
+                            <a class="navbar-brand" href="#">Agenda de Contatos</a>
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-
-                                <li><ice:commandLink value="Artistas" action="#{artistaBean.listarTodos}"/></li>
-                                <li><ice:commandLink value="Álbuns" action="#{albumBean.listarTodos}"/></li>
-                                <li><ice:commandLink value="Faixas" action="#{faixaBean.listarTodos}"/></li>
-                                <li><a href="${facesContext.externalContext.requestContextPath}/cadastro.xhtml?faces-redirect=true">Cadastro</a></li>
-                                <li><a href="${facesContext.externalContext.requestContextPath}/colaborador/inicial.xhtml?faces-redirect=true">Área de colaborador</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Área de administrador <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><ice:commandLink value="Artistas" action="#{artistaBean.listarAdmin}"/></li>
-                                        <li><ice:commandLink value="Álbuns" action="#{albumBean.listarAdmin}"/></li>
-                                        <li><ice:commandLink value="Faixas" action="#{faixaBean.listarAdmin}"/></li>
-                                        <li><a href="${facesContext.externalContext.requestContextPath}/admin/usuarios.xhtml?faces-redirect=true">Usuários</a></li>
-                                    </ul>
-                                </li>
-                                <li><ice:commandLink value="${facesContext.externalContext.userPrincipal.name}" action="#" rendered="${!empty facesContext.externalContext.userPrincipal}"/></li>
-                                <li><ice:commandLink value="Logout" action="#{loginBean.logoutAction}" rendered="${!empty facesContext.externalContext.userPrincipal}"/></li>
+                                <li><a href="${facesContext.externalContext.requestContextPath}/index.xhtml">Início</a></li>
+                                <li><a href="${facesContext.externalContext.requestContextPath}/contatos.xhtml">Contatos</a></li>
                             </ul>
                         </div><!--/.nav-collapse -->
                     </div>
@@ -53,7 +38,7 @@
 
             <div class="container">
                 <div class="row">
-                    <ui:insert name="top"><h3>Music Database</h3></ui:insert>
+                    <ui:insert name="top"><h3>Agenda de Contatos</h3></ui:insert>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
@@ -64,7 +49,7 @@
                 </div>
                 <div class="row">
                     <ui:insert name="bottom">
-                        Projeto Final de Desenvolvimento Web 
+                        Primeiro projeto de Desenvolvimento Integrado de Sistemas 
                     </ui:insert>
                 </div>
             </div>

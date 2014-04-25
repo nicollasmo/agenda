@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                template="/WEB-INF/templates/layout.xhtml">
+
+    <ui:define name="styles">
+    </ui:define>
+
+    <ui:define name="metadata">
+    </ui:define>
+
+    <ui:define name="javascript">
+    </ui:define>
+
+    <ui:define name="top">
+        <h3>Listagem de Contatos Cadastrados</h3>
+    </ui:define>
+
+    <ui:define name="content">
+        <ice:form>
+            <ice:panelGroup>
+                <ice:commandButton value="Listar todos" action="#{contatoBean.listar}"/>
+            </ice:panelGroup>
+            <ice:messages/>
+            <br/><br/>
+            <ace:dataTable value="#{contatoBean.contatos}"
+                           var="contato"
+                           paginator="true"
+                           paginatorPosition="bottom"
+                           rows="10">
+                <ace:column  headerText="Código" sortBy="#{contato.codigo}">
+                    <ice:outputText value="#{contato.codigo}"/>
+                </ace:column>
+                <ace:column headerText="Nome" sortBy="#{contato.nome}">
+                    <ice:outputText value="#{contato.nome}"/>
+                </ace:column>
+                <ace:column headerText="Endereço" sortBy="#{contato.endereco}">
+                    <ice:outputText value="#{contato.endereco}"/>
+                </ace:column>
+                <ace:column headerText="Telefone" sortBy="#{contato.telefone}">
+                    <ice:outputText value="#{contato.telefone}"/>
+                </ace:column>
+                <ace:column headerText="Celular" sortBy="#{contato.celular}">
+                    <ice:outputText value="#{contato.celular}"/>
+                </ace:column>
+                <ace:column headerText="Email" sortBy="#{contato.email}">
+                    <ice:outputText value="#{contato.email}"/>
+                </ace:column>
+                <ace:column headerText="Ações">
+                    <ice:commandButton value="Editar" action="#{contatoBean.alterar(contato.codigo)}"/>
+                    &nbsp;
+                    &nbsp;
+                    <ice:commandButton value="Excluir" action="#{contatoBean.excluir(contato.codigo)}"/>
+                </ace:column>
+            </ace:dataTable>
+            <br/><br/>
+            <ice:panelGroup styleClass="form-block">
+                <ice:commandButton value="Inserir Novo" action="#{contatoBean.cadastrar}"/>
+            </ice:panelGroup>
+        </ice:form>
+    </ui:define>
+
+</ui:composition>
